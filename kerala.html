@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Your Trip - Bangalore to Kerala</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.ibb.co/jkqrMsPN/Luxury-House-Boats-where-you-can-feel-the-fresh-air-and-beauty-of-backwater-s-of-Kerala.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.65);
+      background-blend-mode: overlay;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin: 30px 0;
+    }
+
+    .item-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .item {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px 20px;
+      border-radius: 10px;
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .item h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .item p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Plan Your Trip: Bangalore to Kerala</h1>
+
+  <div id="places-section" class="section">
+    <h2>Must-Visit Places in Kerala</h2>
+    <div class="item-list" id="places-list">
+      <!-- Place information dynamically added here -->
+    </div>
+  </div>
+
+  <div id="hotels-section" class="section">
+    <h2>Available Hotels</h2>
+    <div class="item-list" id="hotels-list">
+      <!-- Hotel information dynamically added here -->
+    </div>
+  </div>
+
+  <div id="restaurants-section" class="section">
+    <h2>Top Restaurants</h2>
+    <div class="item-list" id="restaurants-list">
+      <!-- Restaurant information dynamically added here -->
+    </div>
+  </div>
+
+  <script>
+    // Mock data for Bangalore to Kerala trip
+    const placesToVisit = [
+      { name: "Munnar", description: "Beautiful hill station with tea gardens and waterfalls." },
+      { name: "Alleppey", description: "Known for its serene backwaters and houseboats." },
+      { name: "Kochi", description: "Historic city with a blend of modern and colonial charm." }
+    ];
+
+    const hotels = [
+      { name: "The Kerala Grande", price: "120 rupees/night", description: "5-star luxury hotel in Kochi." },
+      { name: "Backwater Retreat", price: "$80/night", description: "Serene retreat in Alleppey." }
+    ];
+
+    const restaurants = [
+      { name: "Spice Villa", cuisine: "Kerala Cuisine", rating: "4.8/5" },
+      { name: "Seaside Grills", cuisine: "Seafood", rating: "4.5/5" }
+    ];
+
+    // Function to render a list dynamically
+    const renderList = (id, items, formatter) => {
+      const container = document.getElementById(id);
+      items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = formatter(item);
+        container.appendChild(div);
+      });
+    };
+
+    // Render places, hotels, and restaurants
+    renderList('places-list', placesToVisit, item => `
+      <h3>${item.name}</h3>
+      <p>${item.description}</p>
+    `);
+
+    renderList('hotels-list', hotels, item => `
+      <h3>${item.name}</h3>
+      <p>Price: ${item.price}</p>
+      <p>${item.description}</p>
+    `);
+
+    renderList('restaurants-list', restaurants, item => `
+      <h3>${item.name}</h3>
+      <p>Cuisine: ${item.cuisine}</p>
+      <p>Rating: ${item.rating}</p>
+    `);
+  </script>
+</body>
+</html>

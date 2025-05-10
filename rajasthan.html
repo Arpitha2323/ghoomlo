@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Your Trip - Bangalore to Rajasthan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.ibb.co/Kc3mGkHK/A-Day-in-Thar-Desert.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.65);
+      background-blend-mode: overlay;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin: 30px 0;
+    }
+
+    .item-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .item {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px 20px;
+      border-radius: 10px;
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .item h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .item p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Plan Your Trip: Bangalore to Rajasthan</h1>
+
+  <div id="places-section" class="section">
+    <h2>Must-Visit Places in Rajasthan</h2>
+    <div class="item-list" id="places-list">
+      <!-- Place information dynamically added here -->
+    </div>
+  </div>
+
+  <div id="hotels-section" class="section">
+    <h2>Budget-Friendly Hotels</h2>
+    <div class="item-list" id="hotels-list">
+      <!-- Hotel information dynamically added here -->
+    </div>
+  </div>
+
+  <div id="restaurants-section" class="section">
+    <h2>Top Restaurants</h2>
+    <div class="item-list" id="restaurants-list">
+      <!-- Restaurant information dynamically added here -->
+    </div>
+  </div>
+
+  <script>
+    // Mock data for Bangalore to Rajasthan trip
+    const placesToVisit = [
+      { name: "Jaipur", description: "The Pink City with stunning palaces and forts." },
+      { name: "Udaipur", description: "The City of Lakes, known for its romantic landscapes." },
+      { name: "Pushkar", description: "A holy city famous for its lake and Brahma Temple." }
+    ];
+
+    const hotels = [
+      { name: "Budget Stay Jaipur", price: "₹2,000/night", description: "Affordable and comfortable stay in Jaipur." },
+      { name: "Heritage Inn Udaipur", price: "₹3,000/night", description: "Experience Rajasthani hospitality on a budget." }
+    ];
+
+    const restaurants = [
+      { name: "Chokhi Dhani", cuisine: "Traditional Rajasthani", rating: "4.8/5" },
+      { name: "Lake View Café", cuisine: "Multi-Cuisine", rating: "4.5/5" }
+    ];
+
+    // Function to render a list dynamically
+    const renderList = (id, items, formatter) => {
+      const container = document.getElementById(id);
+      items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = formatter(item);
+        container.appendChild(div);
+      });
+    };
+
+    // Render places, hotels, and restaurants
+    renderList('places-list', placesToVisit, item => `
+      <h3>${item.name}</h3>
+      <p>${item.description}</p>
+    `);
+
+    renderList('hotels-list', hotels, item => `
+      <h3>${item.name}</h3>
+      <p>Price: ${item.price}</p>
+      <p>${item.description}</p>
+    `);
+
+    renderList('restaurants-list', restaurants, item => `
+      <h3>${item.name}</h3>
+      <p>Cuisine: ${item.cuisine}</p>
+      <p>Rating: ${item.rating}</p>
+    `);
+  </script>
+</body>
+</html>

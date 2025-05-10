@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Your Trip - Bagalkote to Jammu and Kashmir</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.ibb.co/60ynmDN8/Lidder-River-Pahalgam-Kashmir.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7); /* 70% transparency */
+      background-blend-mode: overlay;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin: 30px 0;
+    }
+
+    .item-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .item {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px 20px;
+      border-radius: 10px;
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .item h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .item p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Plan Your Trip: Bagalkote to Jammu and Kashmir</h1>
+
+  <div id="places-section" class="section">
+    <h2>Must-Visit Places in Jammu and Kashmir</h2>
+    <div class="item-list" id="places-list">
+      <!-- Place information dynamically added here -->
+    </div>
+  </div>
+
+  <div id="hotels-section" class="section">
+    <h2>Budget-Friendly Hotels</h2>
+    <div class="item-list" id="hotels-list">
+      <!-- Hotel information dynamically added here -->
+    </div>
+  </div>
+
+  <div id="restaurants-section" class="section">
+    <h2>Top Restaurants</h2>
+    <div class="item-list" id="restaurants-list">
+      <!-- Restaurant information dynamically added here -->
+    </div>
+  </div>
+
+  <script>
+    // Mock data for Bagalkote to Jammu and Kashmir trip
+    const placesToVisit = [
+      { name: "Srinagar", description: "Famous for Dal Lake and stunning Mughal gardens." },
+      { name: "Gulmarg", description: "Known for its skiing and lush green meadows." },
+      { name: "Pahalgam", description: "A serene hill town perfect for nature lovers." }
+    ];
+
+    const hotels = [
+      { name: "Budget Stay Srinagar", price: "₹1,800/night", description: "Comfortable and affordable stay near Dal Lake." },
+      { name: "Meadow View Gulmarg", price: "₹2,500/night", description: "Budget-friendly lodging with scenic views." }
+    ];
+
+    const restaurants = [
+      { name: "Kashmiri Flavors", cuisine: "Authentic Kashmiri", rating: "4.7/5" },
+      { name: "Valley Delights", cuisine: "Multi-Cuisine", rating: "4.5/5" }
+    ];
+
+    // Function to render a list dynamically
+    const renderList = (id, items, formatter) => {
+      const container = document.getElementById(id);
+      items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = formatter(item);
+        container.appendChild(div);
+      });
+    };
+
+    // Render places, hotels, and restaurants
+    renderList('places-list', placesToVisit, item => `
+      <h3>${item.name}</h3>
+      <p>${item.description}</p>
+    `);
+
+    renderList('hotels-list', hotels, item => `
+      <h3>${item.name}</h3>
+      <p>Price: ${item.price}</p>
+      <p>${item.description}</p>
+    `);
+
+    renderList('restaurants-list', restaurants, item => `
+      <h3>${item.name}</h3>
+      <p>Cuisine: ${item.cuisine}</p>
+      <p>Rating: ${item.rating}</p>
+    `);
+  </script>
+</body>
+</html>
